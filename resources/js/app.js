@@ -9,7 +9,6 @@ import './bootstrap';
 import {createApp} from 'vue/dist/vue.esm-bundler';
 import ChatMessages from './components/ChatMessages.vue';
 import ChatForm from './components/ChatForm.vue';
-import {computed} from "vue";
 import Filter from 'bad-words';
 
 
@@ -18,9 +17,9 @@ const app = createApp({
         ChatMessages,
         ChatForm
     },
-    data(){
+    data() {
         let messages;
-        return {messages}
+        return { messages}
     },
     created() {
         this.fetchMessages();
@@ -28,6 +27,7 @@ const app = createApp({
     methods: {
         fetchMessages() {
             axios.get('/messages').then(response => {
+                this.auth = response.data.auth;
                 this.messages = response.data;
             });
 
@@ -40,12 +40,12 @@ const app = createApp({
                 });
         },
         addMessage(message) {
-            const filter  = new Filter();
+            const filter = new Filter();
             message.message = filter.clean(message.message)
-
             this.messages.push(message);
+
             axios.post('/messages', message).then(response => {
-                console.log(response.data);
+               //response.data
             });
         }
     }

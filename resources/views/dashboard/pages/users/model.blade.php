@@ -102,17 +102,6 @@
         $form.submit(function (e) {
             e.preventDefault();
             ajax()
-            {{--let formData = new FormData(this);--}}
-
-            {{--if ($btnSubmit.data("method") === "put") {--}}
-            {{--    const $arr = [];--}}
-            {{--    $($(this).serializeArray()).each(function(i, field){--}}
-            {{--        $arr[field.name] = field.value;--}}
-            {{--    });--}}
-            {{--    ajax(`{{ url("dashboard/users") }}/${$btnSubmit.data("id")}`, "put",$arr)--}}
-            {{--} else {--}}
-            {{--    ajax("{{ route("users.store") }}", "POST", formData)--}}
-            {{--}--}}
         })
 
 
@@ -162,12 +151,6 @@
                 url: "{{ route('users.store') }}",
                 type: "POST",
                 dataType: 'json',
-                // type: method,
-                // url: url,
-                // data:  method === "put" ? JSON.stringify(data) : data,
-                // dataType: "JSON",
-                // processData: false,
-                // contentType:  method === "put" ? "application/json" :  false,
                 headers: {
                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 },
