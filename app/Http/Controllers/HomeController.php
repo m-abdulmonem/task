@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,24 +13,16 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
 
     /**
      * Show the application dashboard.
      *
-     * @return Renderable
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('frontend.pages.home');
-    }
-
-
-    public function blocked()
-    {
-        abort_if(auth()->check() && !auth()->user()->isBlocked(),404);
-
-        return view("frontend.pages.blocked");
+        return view('home');
     }
 }

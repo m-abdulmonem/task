@@ -78,4 +78,11 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin"][$value],
         );
     }
+
+
+    //Add the below function
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

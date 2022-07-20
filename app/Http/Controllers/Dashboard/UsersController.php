@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -42,6 +43,8 @@ class UsersController extends Controller
             'type' => 'sometimes|nullable',
             'status' => 'sometimes|nullable|in:active,blocked'
         ]);
+
+        $request->merge(['password' => Hash::make($request->password)]);
 
         $data = User::updateOrCreate(['id' => $request->id],$request->except("_token","id"));
 

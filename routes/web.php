@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +16,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("blocked",[HomeController::class,"blocked"])->name("blocked");
 
-Route::get('/', function () {
-    return view('frontend.pages.welcome');
+Route::view('/', 'frontend.pages.welcome');
+
+Route::get("blocked", [HomeController::class, "blocked"])->name("blocked");
+
+
+
+
+Route::middleware("auth")->group(function () {
+//    Broadcast::channel('chat', function ($user) {
+//        return Auth::check();
+//    });
+
+    Route::get('/home', [ChatsController::class, 'index'])->name('home');
+    Route::get('/messages', [ChatsController::class, 'fetchMessages']);
+    Route::post('/messages', [ChatsController::class, 'sendMessage']);
 });
-
-
-
 
 Auth::routes();
 
-Route::get('/', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware("auth")->name('home');
