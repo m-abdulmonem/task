@@ -11,7 +11,10 @@ Design and implement a chat application using Laravel Framework.
 
 ## Instalation & running
 
-first step change ==.env.example== to ==.env== 
+first step change file name from <mark>.env.example</mark> to ==.env== 
+then in profject folder open command line and run this command >php artisan key:generate
+then create database table
+
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
