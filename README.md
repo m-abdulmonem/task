@@ -19,6 +19,6 @@ thene open cmd
 and run all commands
     -> php artisan migrate
     -> npm install
-    -> npm run build
+    -> npm run dev
     -> php artisan serve
     
