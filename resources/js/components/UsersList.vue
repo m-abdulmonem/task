@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
     .users-list {
-        width: 100%;
+        width: auto;
         position: absolute;
         height: 100%;
         top: 0;
