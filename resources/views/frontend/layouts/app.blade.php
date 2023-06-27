@@ -16,7 +16,7 @@
 
     <script src="{{ admin_assets("jquery.min.js") }}"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="{{  asset("assets/frontend/bootstrap.min.css") }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 

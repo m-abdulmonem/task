@@ -9,13 +9,17 @@ import './bootstrap';
 import {createApp} from 'vue/dist/vue.esm-bundler';
 import ChatMessages from './components/ChatMessages.vue';
 import ChatForm from './components/ChatForm.vue';
+import UsersList from './components/UsersList.vue';
+import ChatClone from './components/ChatClone.vue';
 import Filter from 'bad-words';
 
 
 const app = createApp({
     components: {
         ChatMessages,
-        ChatForm
+        ChatForm,
+        UsersList,
+        ChatClone
     },
     data() {
         let messages;

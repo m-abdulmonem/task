@@ -18,6 +18,7 @@ export default {
 };
 </script>
 <style>
+
 .chat {
     position: relative;
     overflow: hidden;

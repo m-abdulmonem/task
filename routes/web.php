@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'frontend.pages.welcome');
+Route::view('/test', 'frontend.pages.chat');
 
 Route::get("blocked", [HomeController::class, "blocked"])->name("blocked");
+
 
 
 
